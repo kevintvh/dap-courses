@@ -1,0 +1,49 @@
+version: '2'
+services:
+  loggen:
+    image: minyk/docker-loggen
+    hostname: loggen
+    volumes:
+      - ./data:/opt/data:rw
+    ports:
+      - "2200:22"
+  sftp:
+    image: atmoz/sftp
+    hostname: sftp
+    ports:
+      - "2201:22"
+    volumes:
+      - ./data:/home/dap/data
+      - ./sftp-users.conf:/etc/sftp-users.conf:ro
+  nifi:
+    image: mkobit/nifi
+    hostname: nifi
+    ulimits:
+      nproc: 65535
+      nofile:
+        soft: 60000
+        hard: 60000
+    ports:
+      - "2202:22"
+      - "8080:8080"
+      - "8081:8081"
+    volumes:
+      - ./conf/hdfs:/opt/hdfs:ro
+    links:
+      - sftp
+      - hdfs
+  hdfs:
+    image: minyk/hdfs-daemon
+    hostname: hdfs
+    ports:
+      - "2203:22"
+      - "50010:50010"
+      - "50020:50020"
+      - "50070:50070"
+      - "50075:50075"
+      - "8020:8020"
+    ulimits:
+      nproc: 65535
+      nofile:
+        soft: 60000
+        hard: 60000
