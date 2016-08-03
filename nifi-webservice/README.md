@@ -16,7 +16,7 @@ Build webservice using apache nifi only.
 
 # Experiments
 
-This senario uses `StandardHttpContextMap` service. You should enable the service in the `NiFi Flow Settings`'s `Controller Services` tab.
+This scenario uses `StandardHttpContextMap` service. You should enable the service in the `NiFi Flow Settings`'s `Controller Services` tab.
 
 ## Sending the HTTP request
 
@@ -26,7 +26,7 @@ This senario uses `StandardHttpContextMap` service. You should enable the servic
 $ curl -X POST -d '{"name":"test","value":1}' http://localhost:11111/item/log
 ```
 3. Confirm 200 OK
-4. Check Nifi's Data Proveance.
+4. Check Nifi's Data Provenance.
 
 ## Change response
 
@@ -40,7 +40,7 @@ $ curl -X POST -d '{"name":"test","value":1}' http://localhost:11111/item/log
 ## Tweak like real webservice
 
 1. Goto Nifi UI
-2. Stop flow and open configuration panel of `HandleHTTPRequest` processor.
+2. Stop the flow and open configuration panel of `HandleHTTPRequest` processor.
 3. Reconfigure `Allowed Paths` using Regex e.g. ```/items/\d{6}/(logs|status)$```. This pattern matches like `/items/123456/logs` or `/items/123456/status`.
 4. Start flow
 5. Sending data using matched urls. Like
