@@ -1,0 +1,242 @@
+{
+  "paragraphs": [
+    {
+      "text": "%md\nPySpark Test Notebook\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d",
+      "user": "admin",
+      "dateUpdated": "Jul 5, 2016 6:24:13 AM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorMode": "ace/mode/markdown"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1467679881950_-426878603",
+      "id": "20160705-005121_1540407705",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003ch1\u003ePySpark Test Notebook\u003c/h1\u003e\n"
+      },
+      "dateCreated": "Jul 5, 2016 12:51:21 AM",
+      "dateStarted": "Jul 5, 2016 6:24:13 AM",
+      "dateFinished": "Jul 5, 2016 6:24:13 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Read movie lens dataset.",
+      "text": "%pyspark\nimport os\nsmall_dataset_path \u003d \u0027file:///usr/zeppelin/data/ml\u0027\n\nsmall_ratings_file \u003d os.path.join(small_dataset_path, \u0027ratings.csv\u0027)\nsmall_ratings_raw_data \u003d sc.textFile(small_ratings_file)\nsmall_ratings_raw_data_header \u003d small_ratings_raw_data.take(1)[0]\n\n# just to show as DF\nsmall_ratings_raw_data_DF\u003dsqlContext.load(\n source\u003d\"com.databricks.spark.csv\",\n header\u003d\u0027true\u0027,\n inferSchema\u003d\u0027true\u0027,\n path\u003d\n small_ratings_file)\nsmall_ratings_raw_data_DF.show(6)",
+      "user": "admin",
+      "dateUpdated": "Jul 5, 2016 6:24:13 AM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorMode": "ace/mode/scala",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1467609930909_-794134707",
+      "id": "20160704-052530_510849931",
+      "result": {
+        "code": "ERROR",
+        "type": "TEXT",
+        "msg": "/usr/spark-1.6.2/python/pyspark/sql/context.py:535: UserWarning: load is deprecated. Use read.load() instead.\n  warnings.warn(\"load is deprecated. Use read.load() instead.\")\nPy4JJavaError: An error occurred while calling o64.load.\n: java.lang.ClassNotFoundException: Failed to find data source: com.databricks.spark.csv. Please find packages at http://spark-packages.org\n\tat org.apache.spark.sql.execution.datasources.ResolvedDataSource$.lookupDataSource(ResolvedDataSource.scala:77)\n\tat org.apache.spark.sql.execution.datasources.ResolvedDataSource$.apply(ResolvedDataSource.scala:102)\n\tat org.apache.spark.sql.DataFrameReader.load(DataFrameReader.scala:119)\n\tat org.apache.spark.sql.DataFrameReader.load(DataFrameReader.scala:109)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\tat java.lang.reflect.Method.invoke(Method.java:498)\n\tat py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:231)\n\tat py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:381)\n\tat py4j.Gateway.invoke(Gateway.java:259)\n\tat py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:133)\n\tat py4j.commands.CallCommand.execute(CallCommand.java:79)\n\tat py4j.GatewayConnection.run(GatewayConnection.java:209)\n\tat java.lang.Thread.run(Thread.java:745)\nCaused by: java.lang.ClassNotFoundException: com.databricks.spark.csv.DefaultSource\n\tat java.net.URLClassLoader.findClass(URLClassLoader.java:381)\n\tat java.lang.ClassLoader.loadClass(ClassLoader.java:424)\n\tat java.lang.ClassLoader.loadClass(ClassLoader.java:357)\n\tat org.apache.spark.sql.execution.datasources.ResolvedDataSource$$anonfun$4$$anonfun$apply$1.apply(ResolvedDataSource.scala:62)\n\tat org.apache.spark.sql.execution.datasources.ResolvedDataSource$$anonfun$4$$anonfun$apply$1.apply(ResolvedDataSource.scala:62)\n\tat scala.util.Try$.apply(Try.scala:161)\n\tat org.apache.spark.sql.execution.datasources.ResolvedDataSource$$anonfun$4.apply(ResolvedDataSource.scala:62)\n\tat org.apache.spark.sql.execution.datasources.ResolvedDataSource$$anonfun$4.apply(ResolvedDataSource.scala:62)\n\tat scala.util.Try.orElse(Try.scala:82)\n\tat org.apache.spark.sql.execution.datasources.ResolvedDataSource$.lookupDataSource(ResolvedDataSource.scala:62)\n\t... 14 more\n\n(\u003cclass \u0027py4j.protocol.Py4JJavaError\u0027\u003e, Py4JJavaError(\u0027An error occurred while calling o64.load.\\n\u0027, JavaObject id\u003do65), \u003ctraceback object at 0x7f23770edc88\u003e)"
+      },
+      "dateCreated": "Jul 4, 2016 5:25:30 AM",
+      "dateStarted": "Jul 5, 2016 6:24:13 AM",
+      "dateFinished": "Jul 5, 2016 6:24:35 AM",
+      "status": "ERROR",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Register dataframe to table",
+      "text": "%pyspark\n\nfrom pyspark.sql.types import *\n\ndata \u003d sc.textFile(small_ratings_file)\ndata \u003d data.filter(lambda line: line !\u003dsmall_ratings_raw_data_header ).map(lambda line: line.split(\u0027,\u0027)). \\\n        map(lambda x: Row(userId\u003d int(x[0]),movieId\u003d int(x[1]),rating\u003d float(x[2]),timestamp\u003d str(x[3])  ))\ndataDF \u003d sqlContext.createDataFrame(data)\ndataDF.registerTempTable(\"d\")",
+      "user": "admin",
+      "dateUpdated": "Jul 5, 2016 6:24:13 AM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorMode": "ace/mode/scala",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1467609271890_-1669590052",
+      "id": "20160704-051431_1669573929",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": ""
+      },
+      "dateCreated": "Jul 4, 2016 5:14:31 AM",
+      "dateStarted": "Jul 5, 2016 6:24:15 AM",
+      "dateFinished": "Jul 5, 2016 6:24:36 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Do SQL",
+      "text": "%sql\nselect movieId, avg(rating) as rating from d group by movieId limit ${limit\u003d200, 100|300|500|700} ",
+      "user": "admin",
+      "dateUpdated": "Jul 5, 2016 6:24:13 AM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "multiBarChart",
+          "height": 300.0,
+          "optionOpen": true,
+          "keys": [
+            {
+              "name": "movieId",
+              "index": 0.0,
+              "aggr": "sum",
+              "$$hashKey": "object:388"
+            }
+          ],
+          "values": [
+            {
+              "name": "rating",
+              "index": 1.0,
+              "aggr": "sum",
+              "$$hashKey": "object:397"
+            }
+          ],
+          "groups": [],
+          "scatter": {
+            "xAxis": {
+              "name": "movieId",
+              "index": 0.0,
+              "aggr": "sum"
+            }
+          }
+        },
+        "enabled": true,
+        "editorMode": "ace/mode/scala",
+        "title": true
+      },
+      "settings": {
+        "params": {
+          "limit": " 100"
+        },
+        "forms": {
+          "limit": {
+            "name": "limit",
+            "defaultValue": "200",
+            "options": [
+              {
+                "value": " 100"
+              },
+              {
+                "value": "300"
+              },
+              {
+                "value": "500"
+              },
+              {
+                "value": "700"
+              }
+            ],
+            "hidden": false
+          }
+        }
+      },
+      "jobName": "paragraph_1467609264271_-1371040230",
+      "id": "20160704-051424_963710249",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TABLE",
+        "msg": "movieId\trating\n231\t3.0033557046979866\n45431\t3.0714285714285716\n431\t3.9069767441860463\n1831\t2.7857142857142856\n3431\t2.3333333333333335\n1231\t3.9\n31\t3.1704545454545454\n2231\t3.6515151515151514\n2431\t3.3461538461538463\n27831\t3.9473684210526314\n39231\t3.1\n80831\t3.3333333333333335\n55031\t4.1\n1031\t3.388888888888889\n1431\t2.789473684210526\n1631\t3.5\n48231\t3.5\n3831\t2.6666666666666665\n93831\t3.125\n631\t3.107142857142857\n7031\t2.5\n4831\t1.5\n26231\t3.5\n4231\t3.25\n4031\t3.25\n6031\t4.5\n6231\t4.0\n6431\t4.0\n32031\t3.0714285714285716\n115231\t3.5\n91831\t4.0\n7831\t3.8333333333333335\n2031\t3.0\n64231\t2.875\n8831\t1.25\n8631\t3.0\n52831\t3.0\n73431\t2.5\n77831\t3.0\n4631\t3.0\n3031\t2.0\n143031\t3.0\n831\t5.0\n121231\t2.0\n5231\t2.5\n25831\t4.0\n31431\t2.0\n46231\t0.5\n61031\t1.0\n65631\t1.5\n91031\t3.5\n102231\t3.0\n104231\t3.5\n32\t3.9396135265700485\n232\t3.9827586206896552\n87232\t3.6607142857142856\n832\t3.402439024390244\n432\t2.716666666666667\n1232\t3.85\n3432\t1.6666666666666667\n1432\t2.5833333333333335\n1032\t3.923076923076923\n2232\t3.585714285714286\n55232\t3.03125\n60832\t2.625\n3032\t4.125\n5832\t1.75\n4232\t2.5555555555555554\n27032\t3.1666666666666665\n58432\t3.6666666666666665\n632\t4.25\n4632\t3.5\n96432\t3.375\n6832\t3.5\n42632\t3.25\n64032\t3.0\n4432\t4.5\n78032\t4.0\n2432\t3.8\n3232\t2.75\n7832\t3.6666666666666665\n27432\t3.5\n5632\t3.5\n2032\t3.0\n96832\t2.5\n133832\t3.5\n32632\t3.25\n59832\t3.75\n43832\t4.0\n97232\t2.0\n141432\t3.0\n6032\t4.5\n7032\t2.5\n7232\t3.0\n33832\t2.0\n1632\t1.0\n2832\t4.0\n4032\t3.5\n8232\t3.5\n25832\t3.5\n"
+      },
+      "dateCreated": "Jul 4, 2016 5:14:24 AM",
+      "dateStarted": "Jul 5, 2016 6:24:35 AM",
+      "dateFinished": "Jul 5, 2016 6:24:40 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "user": "admin",
+      "dateUpdated": "Jul 5, 2016 6:24:13 AM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1467609836409_371130149",
+      "id": "20160704-052356_511998044",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": ""
+      },
+      "dateCreated": "Jul 4, 2016 5:23:56 AM",
+      "dateStarted": "Jul 5, 2016 6:24:36 AM",
+      "dateFinished": "Jul 5, 2016 6:24:40 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "Demo Notebook",
+  "id": "2BNXU7QDC",
+  "angularObjects": {
+    "2BQ3YR12X:shared_process": [],
+    "2BSM6HCC4:shared_process": [],
+    "2BQBXFG89:shared_process": [],
+    "2BR8JZGTS:shared_process": [],
+    "2BQWA31E7:shared_process": [],
+    "2BPDF3CTH:shared_process": [],
+    "2BPYAMETB:shared_process": [],
+    "2BQRH17RV:shared_process": []
+  },
+  "config": {
+    "looknfeel": "default"
+  },
+  "info": {}
+}

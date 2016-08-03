@@ -1,0 +1,35 @@
+version: '2'
+services:
+  hdfs:
+    image: minyk/hdfs-daemon
+    hostname: hdfs
+    ports:
+      - "2200:22"
+      - "50010:50010"
+      - "50020:50020"
+      - "50070:50070"
+      - "50075:50075"
+      - "8020:8020"
+    ulimits:
+      nproc: 65535
+      nofile:
+        soft: 60000
+        hard: 60000
+  zeppelin:
+    image: minyk/docker-zeppelin
+    hostname: zeppelin
+    ports:
+      - "2201:22"
+      - "8888:8888"
+    environment:
+      ZEPPELIN_PORT: 8888
+      ZEPPELIN_JAVA_OPTS: >-
+        -Dspark.driver.memory=1g
+        -Dspark.executor.memory=2g
+      MASTER: local[*]
+    volumes:
+      - ./data:/usr/zeppelin/data
+      - ./notebooks:/usr/zeppelin/notebook
+      - ./conf:/usr/zeppelin/conf
+    links:
+      - hdfs

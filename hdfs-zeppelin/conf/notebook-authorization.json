@@ -1,0 +1,16 @@
+{
+  "authInfo": {
+    "2BNXU7QDC": {
+      "owners": [
+        "admin"
+      ],
+      "readers": [
+        "user1",
+        "admin"
+      ],
+      "writers": [
+        "admin"
+      ]
+    }
+  }
+}

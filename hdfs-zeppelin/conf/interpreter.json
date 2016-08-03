@@ -1,0 +1,285 @@
+{
+  "interpreterSettings": {
+    "2BQBXFG89": {
+      "id": "2BQBXFG89",
+      "name": "md",
+      "group": "md",
+      "properties": {},
+      "interpreterGroup": [
+        {
+          "class": "org.apache.zeppelin.markdown.Markdown",
+          "name": "md"
+        }
+      ],
+      "dependencies": [],
+      "option": {
+        "remote": true,
+        "perNoteSession": false,
+        "perNoteProcess": false,
+        "isExistingProcess": false
+      }
+    },
+    "2BR8JZGTS": {
+      "id": "2BR8JZGTS",
+      "name": "jdbc",
+      "group": "jdbc",
+      "properties": {
+        "phoenix.user": "phoenixuser",
+        "hive.url": "jdbc:hive2://localhost:10000",
+        "default.driver": "org.postgresql.Driver",
+        "phoenix.driver": "org.apache.phoenix.jdbc.PhoenixDriver",
+        "hive.user": "hive",
+        "psql.password": "",
+        "psql.user": "phoenixuser",
+        "psql.url": "jdbc:postgresql://localhost:5432/",
+        "default.user": "gpadmin",
+        "phoenix.url": "jdbc:phoenix:localhost:2181:/hbase-unsecure",
+        "tajo.url": "jdbc:tajo://localhost:26002/default",
+        "tajo.driver": "org.apache.tajo.jdbc.TajoDriver",
+        "psql.driver": "org.postgresql.Driver",
+        "default.password": "",
+        "zeppelin.interpreter.localRepo": "/usr/zeppelin/local-repo/2BR8JZGTS",
+        "zeppelin.jdbc.concurrent.use": "true",
+        "hive.password": "",
+        "hive.driver": "org.apache.hive.jdbc.HiveDriver",
+        "common.max_count": "1000",
+        "phoenix.password": "",
+        "zeppelin.jdbc.concurrent.max_connection": "10",
+        "default.url": "jdbc:postgresql://localhost:5432/"
+      },
+      "interpreterGroup": [
+        {
+          "class": "org.apache.zeppelin.jdbc.JDBCInterpreter",
+          "name": "sql"
+        }
+      ],
+      "dependencies": [],
+      "option": {
+        "remote": true,
+        "perNoteSession": false,
+        "perNoteProcess": false,
+        "isExistingProcess": false
+      }
+    },
+    "2BSM6HCC4": {
+      "id": "2BSM6HCC4",
+      "name": "sh",
+      "group": "sh",
+      "properties": {
+        "shell.command.timeout.millisecs": "60000"
+      },
+      "interpreterGroup": [
+        {
+          "class": "org.apache.zeppelin.shell.ShellInterpreter",
+          "name": "sh"
+        }
+      ],
+      "dependencies": [],
+      "option": {
+        "remote": true,
+        "perNoteSession": false,
+        "perNoteProcess": false,
+        "isExistingProcess": false
+      }
+    },
+    "2BQ3YR12X": {
+      "id": "2BQ3YR12X",
+      "name": "spark",
+      "group": "spark",
+      "properties": {
+        "spark.executor.memory": "2g",
+        "args": "",
+        "zeppelin.spark.printREPLOutput": "true",
+        "spark.cores.max": "",
+        "zeppelin.dep.additionalRemoteRepository": "spark-packages,http://dl.bintray.com/spark-packages/maven,false;",
+        "zeppelin.spark.importImplicit": "true",
+        "zeppelin.spark.sql.stacktrace": "false",
+        "zeppelin.spark.concurrentSQL": "false",
+        "zeppelin.spark.useHiveContext": "true",
+        "zeppelin.pyspark.python": "python3",
+        "zeppelin.dep.localrepo": "local-repo",
+        "zeppelin.R.knitr": "true",
+        "zeppelin.spark.maxResult": "1000",
+        "master": "local[*]",
+        "spark.app.name": "Zeppelin",
+        "zeppelin.R.image.width": "100%",
+        "zeppelin.R.render.options": "out.format \u003d \u0027html\u0027, comment \u003d NA, echo \u003d FALSE, results \u003d \u0027asis\u0027, message \u003d F, warning \u003d F",
+        "zeppelin.R.cmd": "R"
+      },
+      "interpreterGroup": [
+        {
+          "class": "org.apache.zeppelin.spark.SparkInterpreter",
+          "name": "spark"
+        },
+        {
+          "class": "org.apache.zeppelin.spark.PySparkInterpreter",
+          "name": "pyspark"
+        },
+        {
+          "class": "org.apache.zeppelin.spark.SparkRInterpreter",
+          "name": "r"
+        },
+        {
+          "class": "org.apache.zeppelin.spark.SparkSqlInterpreter",
+          "name": "sql"
+        },
+        {
+          "class": "org.apache.zeppelin.spark.DepInterpreter",
+          "name": "dep"
+        }
+      ],
+      "dependencies": [
+        {
+          "groupArtifactVersion": "com.databricks:spark-csv_2.10:1.2.0",
+          "local": false
+        }
+      ],
+      "option": {
+        "remote": true,
+        "perNoteSession": false,
+        "perNoteProcess": false,
+        "isExistingProcess": false
+      }
+    },
+    "2BPYAMETB": {
+      "id": "2BPYAMETB",
+      "name": "psql",
+      "group": "psql",
+      "properties": {
+        "postgresql.driver.name": "org.postgresql.Driver",
+        "postgresql.password": "",
+        "postgresql.url": "jdbc:postgresql://localhost:5432/",
+        "postgresql.max.result": "1000",
+        "postgresql.user": "gpadmin"
+      },
+      "interpreterGroup": [
+        {
+          "class": "org.apache.zeppelin.postgresql.PostgreSqlInterpreter",
+          "name": "sql"
+        }
+      ],
+      "dependencies": [],
+      "option": {
+        "remote": true,
+        "perNoteSession": false,
+        "perNoteProcess": false,
+        "isExistingProcess": false
+      }
+    },
+    "2BQRH17RV": {
+      "id": "2BQRH17RV",
+      "name": "elasticsearch",
+      "group": "elasticsearch",
+      "properties": {
+        "elasticsearch.port": "9300",
+        "elasticsearch.result.size": "10",
+        "elasticsearch.cluster.name": "elasticsearch",
+        "elasticsearch.host": "localhost"
+      },
+      "interpreterGroup": [
+        {
+          "class": "org.apache.zeppelin.elasticsearch.ElasticsearchInterpreter",
+          "name": "elasticsearch"
+        }
+      ],
+      "dependencies": [],
+      "option": {
+        "remote": true,
+        "perNoteSession": false,
+        "perNoteProcess": false,
+        "isExistingProcess": false
+      }
+    },
+    "2BQWA31E7": {
+      "id": "2BQWA31E7",
+      "name": "hdfs",
+      "group": "file",
+      "properties": {
+        "hdfs.maxlength": "1000",
+        "hdfs.user": "hdfs",
+        "zeppelin.interpreter.localRepo": "/usr/zeppelin/local-repo/2BQWA31E7",
+        "hdfs.url": "http://hdfs:50070/webhdfs/v1/"
+      },
+      "interpreterGroup": [
+        {
+          "class": "org.apache.zeppelin.file.HDFSFileInterpreter",
+          "name": "hdfs"
+        }
+      ],
+      "dependencies": [],
+      "option": {
+        "remote": true,
+        "perNoteSession": false,
+        "perNoteProcess": false,
+        "isExistingProcess": false
+      }
+    },
+    "2BPDF3CTH": {
+      "id": "2BPDF3CTH",
+      "name": "angular",
+      "group": "angular",
+      "properties": {},
+      "interpreterGroup": [
+        {
+          "class": "org.apache.zeppelin.angular.AngularInterpreter",
+          "name": "angular"
+        }
+      ],
+      "dependencies": [],
+      "option": {
+        "remote": true,
+        "perNoteSession": false,
+        "perNoteProcess": false,
+        "isExistingProcess": false
+      }
+    }
+  },
+  "interpreterBindings": {
+    "2BNXU7QDC": [
+      "2BQ3YR12X",
+      "2BQBXFG89",
+      "2BPDF3CTH",
+      "2BSM6HCC4",
+      "2BPYAMETB",
+      "2BR8JZGTS",
+      "2BQRH17RV",
+      "2BQWA31E7"
+    ]
+  },
+  "interpreterRepositories": [
+    {
+      "id": "central",
+      "type": "default",
+      "url": "http://repo1.maven.org/maven2/",
+      "releasePolicy": {
+        "enabled": true,
+        "updatePolicy": "daily",
+        "checksumPolicy": "warn"
+      },
+      "snapshotPolicy": {
+        "enabled": true,
+        "updatePolicy": "daily",
+        "checksumPolicy": "warn"
+      },
+      "mirroredRepositories": [],
+      "repositoryManager": false
+    },
+    {
+      "id": "local",
+      "type": "default",
+      "url": "file:///root/.m2/repository",
+      "releasePolicy": {
+        "enabled": true,
+        "updatePolicy": "daily",
+        "checksumPolicy": "warn"
+      },
+      "snapshotPolicy": {
+        "enabled": true,
+        "updatePolicy": "daily",
+        "checksumPolicy": "warn"
+      },
+      "mirroredRepositories": [],
+      "repositoryManager": false
+    }
+  ]
+}
